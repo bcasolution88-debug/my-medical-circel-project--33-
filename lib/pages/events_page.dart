@@ -4,7 +4,7 @@ import '../theme/med_theme.dart';
 import '../widgets/common.dart';
 import '../widgets/events_signup_list.dart';
 import '../widgets/med_icons.dart';
-import 'simple_pages.dart';
+import 'event_publish_page.dart';
 
 /// 义诊活动 — carousel + signup list (circular covers) + 发起活动 FAB.
 class EventsPage extends StatelessWidget {
@@ -12,8 +12,9 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final T = MedTheme.of(context);
     return Scaffold(
-      backgroundColor: MedTheme.bg,
+      backgroundColor: T.bg,
       appBar: const SubHeader(title: '活动列表'),
       body: const SingleChildScrollView(
         child: Column(
@@ -27,7 +28,7 @@ class EventsPage extends StatelessWidget {
       ),
       floatingActionButton: GestureDetector(
         onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const SimplePage(title: '发起活动')),
+          MaterialPageRoute(builder: (_) => const EventPublishPage()),
         ),
         child: Container(
           width: 52,
@@ -86,12 +87,13 @@ class _EventsCarouselState extends State<_EventsCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    final T = MedTheme.of(context);
     final cur = _slides[_idx];
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 4),
       child: Container(
         height: 150,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(18), boxShadow: MedTheme.shadowMd),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(18), boxShadow: T.shadowMd),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(18),
           child: Stack(
