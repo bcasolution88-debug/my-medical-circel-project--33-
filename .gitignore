@@ -49,3 +49,10 @@ backend/health_circle.db
 backend/uploads/
 backend/server.log
 backend/__pycache__/
+
+# signing
+android/key.properties
+android/*.jks
+build_apk.log
+server.log
+flutter.log
